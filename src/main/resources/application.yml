@@ -1,0 +1,14 @@
+spring:
+  flyway:
+    locations: classpath:db/migration   # Flyway migration scripts location
+  r2dbc:
+    url: r2dbc:postgresql://${RDS_HOSTNAME:localhost}:${RDS_PORT:5432}/${RDS_DB_NAME:Quiz}
+    username: postgres
+    password: Varun@008
+    driver: io.r2dbc.postgresql.PostgresqlConnection
+  pool:
+    enabled: true
+    max-size: 5
+    max-idle-time: 10m
+    initial-size: 5
+    validation-query: SELECT 1
