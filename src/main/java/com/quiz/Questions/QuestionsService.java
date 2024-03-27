@@ -11,7 +11,7 @@ public interface QuestionsService {
 
      Mono<ResponseEntity<List<Questions>>> GetAllQuestions();
 
-     Mono<ResponseEntity<String>> addQuestion(Questions req);
+     Mono<ResponseEntity<String>>  addQuestion(Questions req);
 
      Mono<ResponseEntity<List<Questions>>> getQuestionsByFilter(String category, String difficultyLevel, Long id);
 
