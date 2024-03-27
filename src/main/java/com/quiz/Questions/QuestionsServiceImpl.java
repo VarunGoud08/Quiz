@@ -1,15 +1,12 @@
 package com.quiz.Questions;
 
 import com.quiz.Entities.Questions;
-import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.ErrorResponseException;
 import reactor.core.publisher.Mono;
 
-import javax.lang.model.UnknownEntityException;
 import java.util.List;
 
 @Service
@@ -20,9 +17,9 @@ public class QuestionsServiceImpl implements QuestionsService {
 
     @Override
     public Mono<ResponseEntity<List<Questions>>> GetAllQuestions(){
-        Mono<List<Questions>> resp;
-        resp = questionRepository.getAllQuestions().collectList();
-        return resp.map(
+        Mono<List<Questions>> res;
+        res = questionRepository.getAllQuestions().collectList();
+        return res.map(
                 questionList-> new ResponseEntity<>(questionList, HttpStatus.OK))
                 .defaultIfEmpty(ResponseEntity.notFound().build());
     }
