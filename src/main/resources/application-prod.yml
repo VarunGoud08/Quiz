@@ -9,6 +9,6 @@ spring:
   pool:
     enabled: true
     max-size: 5
-    max-idle-time: 10m
+    max-idle-time: 15m
     initial-size: 5
     validation-query: SELECT 1
